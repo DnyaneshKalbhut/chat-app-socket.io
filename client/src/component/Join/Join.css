@@ -39,7 +39,7 @@
     box-sizing: border-box;
 }
 
-.JoinContainer > button{
+ .Btn{
     width: 25vmax;
     padding: 1.5vmax;
     border: none;

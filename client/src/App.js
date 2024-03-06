@@ -1,7 +1,8 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Join from "./component/Join/Join";
-// Import your Chat component
+import Chat from "./component/Chat/Chat";
+
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" Component={Join} />
-          <Route path="/chat" />
+          <Route path="/chat" Component={Chat} />;
         </Routes>
       </Router>
     </div>
