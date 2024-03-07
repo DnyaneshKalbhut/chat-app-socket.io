@@ -5,6 +5,7 @@ import "./Chat.css";
 import sendLogo from "../../Image/send.png";
 import Message from "../Message/Message";
 import ReactScrollToBottom from "react-scroll-to-bottom";
+import closeIcon from '../../Image/closeIcon.png'
 
 const ENDPOINT = "http://localhost:4500/";
 let socket;
@@ -64,7 +65,10 @@ const Chat = () => {
   return (
     <div className="chatPage">
       <div className="chatContainer">
-        <div className="header"></div>
+        <div className="header">
+        <h2>Snappy</h2>
+        <a href="/"> <img src={closeIcon} alt="Close" />  </a> 
+        </div>
         <ReactScrollToBottom className="chatBox">
           {messages.map((item, i) => (
             <Message
@@ -76,7 +80,7 @@ const Chat = () => {
           ))}
         </ReactScrollToBottom>
         <div className="inputBox">
-          <input type="text" placeholder="lets chat" id="chatInput" />
+          <input onKeyPress={(event)=>event.key==="Enter" ? send():null} type="text" placeholder="lets chat" id="chatInput" />
           <button onClick={send} className="sendBtn">
             <img src={sendLogo} alt="logo" />
           </button>
