@@ -32,6 +32,10 @@ io.on("connection",(socket)=>{
         socket.broadcast.emit('leave',{user:"Admin" , message:`${users[socket.id]} has left    `})
         console.log('User left');
     })
+
+    socket.on('message',({message,id})=>{
+     io.emit('sendMessage',{user:users[id],message,id})
+    })
       
 })
 
